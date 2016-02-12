@@ -1,4 +1,3 @@
-[![Prodigal Logo](http://i57.tinypic.com/n3rygn.png)](http://prodigal.ornl.gov/)
 ## Bucephalus
 
   An analysis tool for the game of progressive chess.
