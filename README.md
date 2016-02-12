@@ -23,7 +23,7 @@ and the user types in single letter commands to make moves or evaluate/solve pos
   * Can run a series find with many criteria ('f' command) and combine this with the solve function to find series that consume a certain amount of material without getting mated or ghosted.
 
 ### Help Menu
-``
+```
 ?/h:	Print this help info
 b:	Go back one move
 c:	Show current score
@@ -39,7 +39,7 @@ r:	Show game moves
 s:	Seriesmate solver
 w:	Write position to file
 v:	Show version information
-``
+```
 
 #### Contributors
 
