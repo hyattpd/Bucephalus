@@ -18,19 +18,69 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *******************************************************************************/
 
+/* Version */
 #define VERSION "1.0.0"
 
+/* Game flags */
 #define MAXGAMESIZE	200
 #define MAXPLY	30
 #define MAXLEGAL	100
+
+/* Set HASHON to 0 if want no hash tables */
+/* Various sizes for hash table: */
+/* 40MB: 833347 */
+/* 240MB: 5000011 */
+/* 1GB: 20495347 */
 #define HASHON		1
-/* 40 meg hash table */
-/*  #define HASHSIZE	833347   */
-/* 240 meg hash table */
 #define HASHSIZE	5000011 
 #define GHOSTON		1
 #define NULLPRUNE	0
+#define OFFBOARD 255
 
+/* Debug flags, set for additional info */
+#define DEBUG	0
+#define DEBUGEVAL	0
+
+/* Piece/color flags */
+#define PAWN	(1uL << 0)
+#define KNIGHT	(1uL << 1)
+#define BISHOP	(1uL << 2)
+#define ROOK	(1uL << 3)
+#define QUEEN	(1uL << 4)
+#define KING	(1uL << 5)
+#define WHITE	(1uL << 6)
+#define BLACK	(1uL << 7)
+
+/* Move types */
+#define NORMAL	0
+#define CAPTURE	1
+#define PROMOTE	2
+#define PROMCAP	3
+#define TWOMOVE	4
+#define ENPASSANT	5
+#define KSCASTLE	6
+#define QSCASTLE	7
+#define EMPTY	8
+
+/* Castling flags */
+#define WKC	(1uL << 0)
+#define WQC	(1uL << 1)
+#define BKC	(1uL << 2)
+#define BQC	(1uL << 3)
+
+/* Starting files the for pieces */
+/* 2 = the a-file, 9 = the h-file */
+/* To redefine for Fischer Random, edit these values */
+#define QRFILE	2
+#define KRFILE	9
+#define QNFILE	3
+#define KNFILE	8
+#define QBFILE	4
+#define KBFILE	7
+#define KFILE 	6
+#define QFILE	5
+
+/* Define structure names */
 typedef unsigned char SQUARE;
 typedef struct _position {
   unsigned char side;
@@ -73,51 +123,7 @@ typedef struct _gamerec {
   Move moves[MAXGAMESIZE];
 } Gamerec;
 
-
-
-#define DEBUG	0
-#define DEBUGEVAL	0
-
-
-#define PAWN	(1uL << 0)
-#define KNIGHT	(1uL << 1)
-#define BISHOP	(1uL << 2)
-#define ROOK	(1uL << 3)
-#define QUEEN	(1uL << 4)
-#define KING	(1uL << 5)
-#define WHITE	(1uL << 6)
-#define BLACK	(1uL << 7)
-
-#define OFFBOARD 255
-
-#define NORMAL	0
-#define CAPTURE	1
-#define PROMOTE	2
-#define PROMCAP	3
-#define TWOMOVE	4
-#define ENPASSANT	5
-#define KSCASTLE	6
-#define QSCASTLE	7
-#define EMPTY	8
-
-#define WKC	(1uL << 0)
-#define WQC	(1uL << 1)
-#define BKC	(1uL << 2)
-#define BQC	(1uL << 3)
-
-/* starting files for pieces in fischer random */
-/* valid range is 2-9 (2 = a-file, 9 the h-file)        */
-/* for regular chess, leave these values alone          */
-
-#define QRFILE	2
-#define KRFILE	9
-#define QNFILE	3
-#define KNFILE	8
-#define QBFILE	4
-#define KBFILE	7
-#define KFILE 	6
-#define QFILE	5
-
+/* Functions */
 extern void GenerateMoves(Listnode *, Position *);
 extern void GenerateLegalandIllegal(Listnode *, Position *);
 extern void PrintListnode(Position *, Listnode *);
