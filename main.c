@@ -23,7 +23,7 @@
 #include "chess.h"
 
 /* Global variables */
-int totalc = 0, dummyc = 0, scoreflag = 0;
+int scoreflag = 0;
 unsigned char scoreside = 0;
 Move Best[MAXPLY] = {{0}}, CurrLine[MAXPLY] = {{0}}, MoreLine[MAXPLY] = {{0}};
 Hashentry TransTable[HASHSIZE] = {{{0}}};
@@ -82,7 +82,6 @@ int main(int argc, char *argv[])
         printf("q/x:\tExit Buce\n");
         printf("r:\tShow game moves\n");
         printf("s:\tSeriesmate solver\n");
-        printf("w:\tWrite position to file\n");
         printf("v:\tShow version information\n");
         break;
       case 'b' :
@@ -160,9 +159,6 @@ int main(int argc, char *argv[])
         break;
       case 'v' :
         printf("\nBucephalus Version v%s\n", VERSION);
-        break;
-      case 'w' :
-        DumpPosition(&Current);
         break;
     }
   }

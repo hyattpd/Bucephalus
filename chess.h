@@ -174,7 +174,6 @@ extern int MateSolve(Position *, int, int, int);
 extern int scoreflag;
 extern unsigned char scoreside;
 extern void Find(Position *);
-extern void DumpPosition(Position *);
 extern int FindSeries(Position *, int, int, int, int, int, int, int, int, int, int, int, int);
 extern int IsMatedGhosted(Position *, int, int);
 extern int IsStalemate(Position *, unsigned char);

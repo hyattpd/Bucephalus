@@ -37,7 +37,6 @@ p:	Show position status
 q/x:	Exit Buce
 r:	Show game moves
 s:	Seriesmate solver
-w:	Write position to file
 v:	Show version information
 ```
 
